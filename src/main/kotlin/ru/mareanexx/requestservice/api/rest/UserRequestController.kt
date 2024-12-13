@@ -21,16 +21,15 @@ class UserRequestController(private val userRequestService: UserRequestService) 
     }
 
     @PostMapping("/create")
-    fun createNewRequest(@RequestBody userRequest: UserRequestRequest) : ResponseEntity<String> {
+    fun createNewRequest(@RequestBody userRequest: UserRequestRequest) : ResponseEntity<Map<String, String>> {
         val createdRequest = userRequestService.createNewRequest(userRequest)
         return if (createdRequest) {
-            ResponseEntity("User request successfully created!", HttpStatus.CREATED)
+            ResponseEntity(mapOf("message" to "User request successfully created!"), HttpStatus.CREATED)
         }
         else {
-            ResponseEntity("Cant create new user request!", HttpStatus.BAD_REQUEST)
+            ResponseEntity(mapOf("message" to "Cant create new user request!"), HttpStatus.BAD_REQUEST)
         }
     }
-
     @PostMapping("/admin/answer")
     fun answerToUserRequest(@RequestParam idUserRequest: Int) : ResponseEntity<UserRequestEntity?> {
         return try {

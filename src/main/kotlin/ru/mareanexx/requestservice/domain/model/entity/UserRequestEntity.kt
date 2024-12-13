@@ -15,5 +15,5 @@ data class UserRequestEntity(
     val createdAt: LocalDateTime,
     var statusDate: LocalDateTime,
     val idUser: Int, // Foreign Key to user
-    var status : String = UserRequestStatus.OPEN.name // Enum: OPEN, CLOSED
+    var status : String = UserRequestStatus.OPEN.name // Enum: OPEN, RESOLVED
 )
