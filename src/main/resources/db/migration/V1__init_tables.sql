@@ -10,7 +10,7 @@ CREATE TABLE "user_request" (
     CONSTRAINT fk_user FOREIGN KEY ("id_user") REFERENCES "user"("id_user") ON DELETE RESTRICT
 );
 
-INSERT INTO "user_request" ("message_title", "message", "id_user", "status")
+INSERT INTO "user_request" ("message_title", "message", "id_user", "status", "created_at", "status_date")
 VALUES
-    ('Initial Request', 'This is a sample user request.', 1, 'OPEN'),
-    ('Closed Request', 'This is a sample RESOLVED user request.', 1, 'RESOLVED');
+    ('Автомобиль был не заправлен', 'Добрый день! Столкнулась с такой проблемой. Вчера в 12:03 бронировала автомобиль, а у него неверно показывался уровень топлива..', 1, 'OPEN', '2024-12-06 19:00:00', '2024-12-06 19:00:00'),
+    ('Проблемы с доступом', 'Здравствуйте! Не удалось забронировать авто, хотя оно было свободно, помогите!', 1, 'RESOLVED', '2024-12-04 14:21:00', '2024-12-04 14:25:00');
